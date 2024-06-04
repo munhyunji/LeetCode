@@ -1,17 +1,20 @@
 class Solution {
-    int[] nums = {2, 7, 11, 15};
-    int target = 9;
-    int[] result = twoSum(nums, target);
-
-
-    public int[] twoSum(int[] nums, int target) { //O(n^2)
-        for (int i = 0; i < nums.length; i++) {
-            for (int j = i + 1; j < nums.length; j++) {
-                if (nums[i] + nums[j] == target) {
-                    return new int[]{i, j};
-                }
+    public int[] twoSum(int[] nums, int target) {
+        //HashMap O(n)
+        
+        HashMap<Integer, Integer> hsm = new HashMap<>();
+        
+        for(int i = 0; i < nums.length; i++) {
+            int num = nums[i];
+            int needNum = target - num;
+            
+            if(hsm.containsKey(needNum)) {
+                return new int[]{i, hsm.get(needNum)}; //[3,1];
+            } else {
+                hsm.put(num, i);
             }
+            
         }
-        return null;
+        return new int[]{};
     }
 }
