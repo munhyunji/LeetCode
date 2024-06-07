@@ -18,14 +18,17 @@ class Solution {
         TreeNode currentNode = root;
             
             if(currentNode == null) return false;
-            if (currentNode.left == null && currentNode.right == null) {
-                return targetSum == currentNode.val;
-            }
             targetSum -= currentNode.val;
+            if (currentNode.left == null && currentNode.right == null) {
+                return targetSum == 0;
+            }
+            
             
                //(22-5 = 17) (17-4 / 13) (13-1 = 2) (2 - 7 = -5)
 
+
             return hasPathSum(root.left, targetSum) || hasPathSum(root.right, targetSum);
+        
     }
 }
     
