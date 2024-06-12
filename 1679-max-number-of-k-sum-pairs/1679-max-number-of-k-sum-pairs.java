@@ -14,8 +14,7 @@ class Solution {
             if(sum == k) {
                 count++;
                 leftPointer++;
-                rightPointer--;
-                
+                rightPointer--;                
             } else if (sum > k) {
                 rightPointer--;
             } else {
