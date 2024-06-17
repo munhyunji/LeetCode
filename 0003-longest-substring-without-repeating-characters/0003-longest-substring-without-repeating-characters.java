@@ -5,10 +5,10 @@ class Solution {
         int leftPointer = 0;
         int maxlength = 0;
         //"pwwkew"
-        for(int right = 0; right < s.length(); right++) {
+        for(int right = 0; right < s.length(); right++) { // O(n)
 
             while(set.contains(s.charAt(right))) { //중복이 발생되면 이전까지의 문자를 반복해서 지움
-                set.remove(s.charAt(leftPointer));       
+                set.remove(s.charAt(leftPointer));   // O(1)    
                 leftPointer++; 
             }            
             set.add(s.charAt(right));    
