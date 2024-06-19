@@ -4,7 +4,6 @@ class Solution {
         if(nums.length == 0 ) return 0;
         if(nums.length == 1 ) return nums[0];
         
-        int curMax = 0;
         nums[1] = Math.max(nums[0], nums[1]);
         int max = nums[1];
             
@@ -16,7 +15,7 @@ class Solution {
             nums[i] = max;
         }
               
-        return Math.max(max, curMax);
+        return max;
     }
 }
 
