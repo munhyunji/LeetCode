@@ -1,10 +1,15 @@
 class Solution {
     public int lengthOfLastWord(String s) {
         
-        String[] words = s.split(" ");
+        int count = 0;
+        int i = s.length()-1;
+        //"   fly me   to   the moon  " 
         
-        String lastword = words[words.length-1];
-        
-        return lastword.length();
+        while( i >= 0) {
+           if(s.charAt(i) != ' ') count++;
+            else if (count > 0) return count;
+            i--;
+        }                      
+        return count;
     }
 }
