@@ -14,43 +14,43 @@
 class Solution {
     public boolean isPalindrome(ListNode head) {
         
-        if (head == null || head.next == null) return true;
+        if(head == null || head.next == null) return true; //노드 1개인경우 
         
         ListNode slow = head;
         ListNode fast = head;
         ListNode currentNode = head;
-        
         int length = 1;
+        
+        //노드길이 구하깅
         while(currentNode != null) {
             currentNode = currentNode.next;
             length++;
         }
-
-        while (fast != null && fast.next != null) {
-        slow = slow.next;
-        fast = fast.next.next;
-    }
         
-        ListNode prev = null;
-        ListNode tmp = null;
-        for(int i = 0; i < length/2; i++) {
-            tmp = slow.next;
-            slow.next = prev;
-            prev = slow;
-            slow = tmp;
+        //fast와 slow를 움직일때는 while문을 사용할것..  fast를 끝까지 옮긴다. 
+        while(fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
         }
-        ListNode left = head;
-        ListNode right = prev;
         
-        while(right != null) {
+        ListNode prevNode = null;
+        ListNode nextNode = null;
+        for(int i = 0; i < length/2; i++) {
+            nextNode = slow.next;
+            slow.next = prevNode;
+            prevNode = slow;
+            slow = nextNode;
+        }
+        
+        ListNode left = head;
+        ListNode right = prevNode;
+        while(left != null && right != null) {
             if(left.val != right.val) {
                 return false;
             }
             left = left.next;
             right = right.next;
-            
         }
-  
-        return true; 
+        return true;
     }
 }
