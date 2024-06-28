@@ -21,17 +21,14 @@ class Solution {
     public int res = 0;
     
     public void traverse(TreeNode root, int low, int high) {
-        if(root.left != null) {
-          traverse(root.left, low, high);  
-        }
+        if(root == null) return;
         
+        traverse(root.left, low, high);      
         if(root.val >= low && root.val <= high) {
           res += root.val;  
         }
+        traverse(root.right, low, high);
         
-        if(root.right != null) {
-            traverse(root.right, low, high);
-        }
         
     }
 }
