@@ -34,8 +34,7 @@ class Solution {
             result = (root.val == currentNode.val);
             if(!result) {
                 break;
-            }
-            
+            }         
         }
         return result;
             
