@@ -1,7 +1,7 @@
 class Solution {
      public static boolean canPlaceFlowers(int[] flowerbed, int n) {
          //edge case
-         // attach new value 0 both sides of array 
+         //attach new value 0 both sides of array 
          int[] newflowerbed = new int[flowerbed.length+2];
          newflowerbed[0] = 0;
          newflowerbed[newflowerbed.length-1] = 0;
