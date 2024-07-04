@@ -3,15 +3,14 @@ class Solution {
         
         int j = 0;
         int i = 0;
-        // s = abc
-        // t = ahbgdc
-        while ( j < s.length() && i < t.length() ) {
-            if(s.charAt(j) == t.charAt(i)) {
-                j++;
-            }
-            i++;
-        }
         
-        return j == s.length();
+        while( i < s.length() && j < t.length() ) {
+            if(s.charAt(i) == t.charAt(j)) {
+                i++;
+            }
+            j++;
+        }
+                 
+        return i == s.length();
     }
 }
