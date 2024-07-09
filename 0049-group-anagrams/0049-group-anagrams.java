@@ -1,20 +1,19 @@
 class Solution {
     public List<List<String>> groupAnagrams(String[] strs) {
-        HashMap<String, List<String>> hsm = new HashMap<>();
-        // ("aet", ['eat', 'tea', 'tan'])
         
-        for( String s : strs) {
-            char[] ch = s.toCharArray();
-            Arrays.sort(ch);
-            String newString = new String(ch);
+        HashMap<String, List<String>> hsm = new HashMap<>();
+        
+        for(String word : strs) {
+            char[] c = word.toCharArray();
+            Arrays.sort(c);
+            String sortedWord = new String(c);
             
-            if(hsm.containsKey(newString)) {
-                hsm.get(newString).add(s);
-            } else {
-                List<String> group = new ArrayList<>();
-                group.add(s);
-                hsm.put(newString, group);
-            }
+            if(!hsm.containsKey(sortedWord)) {
+                hsm.put(sortedWord, new ArrayList<>());
+            } 
+            
+            hsm.get(sortedWord).add(word);
+            
         }
         return new ArrayList<>(hsm.values());
     }
