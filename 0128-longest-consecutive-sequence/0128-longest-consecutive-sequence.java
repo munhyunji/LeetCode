@@ -17,7 +17,6 @@ class Solution {
                 
                 while(numset.contains(num++)) {
                     curLen++;
-                    
                     count = Math.max(count, curLen);
                 }
             }
