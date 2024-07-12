@@ -11,24 +11,23 @@
 class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode dummy = new ListNode(0);
-        ListNode currentNode = dummy;
-        int carry = 0;
+        ListNode cur = dummy;
         
-        while(l1 != null || l2 != null || carry > 0) { //길이가달라도 끝까지 수행 
+        int carry = 0; //올림 수 
+        //길이가 다를 수 있으니 ||을 사용
+        while(l1 != null || l2 != null || carry > 0) {
             int v1 = (l1 != null) ? l1.val : 0;
             int v2 = (l2 != null) ? l2.val : 0;
             
             int sum = v1 + v2 + carry;
-            carry = sum /10;
-            int val = sum % 10; 
-            currentNode.next = new ListNode(val);
+            carry = sum / 10; 
+            int val = sum % 10;
+            cur.next = new ListNode(val);
             
-            //move pointer
-            currentNode = currentNode.next;
+            cur = cur.next;
             if(l1 != null) l1 = l1.next;
             if(l2 != null) l2 = l2.next;
-
         }
-        return dummy.next; 
+        return dummy.next;
     }
 }
