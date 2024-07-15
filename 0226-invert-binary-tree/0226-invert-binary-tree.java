@@ -17,11 +17,11 @@ class Solution {
     public TreeNode invertTree(TreeNode root) {
         TreeNode currentNode = root;
         if(currentNode == null) {return null;}
-           
-        TreeNode temp = currentNode.left;
-        currentNode.left = invertTree(currentNode.right);
-        currentNode.right = invertTree(temp);
         
+        TreeNode tmp = currentNode.left;
+        currentNode.left = invertTree(currentNode.right); //left값 저장하고 right바로 
+        currentNode.right = invertTree(tmp);
+                
         return currentNode; 
     }
 }
