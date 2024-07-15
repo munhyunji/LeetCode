@@ -16,17 +16,15 @@ class Solution {
         ListNode greater = greaterHead;
         
         ListNode cur = head;
-
         while(cur != null) {
-            
-            if(cur.val < x ) {
+            if(cur.val < x) {
                 less.next = cur;
                 less = less.next;
             } else {
                 greater.next = cur;
                 greater = greater.next;
             }
-            cur = cur.next;       
+            cur = cur.next;
         }
         greater.next = null;
         less.next = greaterHead.next;
