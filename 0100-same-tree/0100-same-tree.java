@@ -15,18 +15,13 @@
  */
 class Solution {
     public boolean isSameTree(TreeNode p, TreeNode q) {
+        return traverse(p, q);
+    }
+    
+    public boolean traverse(TreeNode p, TreeNode q) {
+        if(p == null && q == null) return true;
+        if(p == null || q == null || q.val != p.val ) return false;
         
-        if( p == null && q == null ) {
-            return true;
-        }
-        
-        if( p == null || q == null || p.val != q.val) {
-            return false;
-        }
-        
-        //여기까지 내려왔다는 의미는
-        //두개의 노드가 모두 null이 아니고
-        //p.val == q.val 이똑같다는것을 의미함
-        return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
+        return traverse(p.left, q.left) && traverse(p.right, q.right);
     }
 }
