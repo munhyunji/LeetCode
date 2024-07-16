@@ -19,16 +19,16 @@ class Solution {
         return min;
     }
     int min = Integer.MAX_VALUE;
-    Integer prev = null;
+    TreeNode prev = null;
     
     public void inOrder(TreeNode root){
         if(root==null) return;
         
         inOrder(root.left);
         if(prev != null){
-            min = Math.min(min, root.val-prev);
+            min = Math.min(min, root.val-prev.val);
         }
-        prev = root.val;
+        prev = root;
         inOrder(root.right);
     }
 }
