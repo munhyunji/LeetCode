@@ -16,7 +16,7 @@
 class Solution {
     public boolean isValidBST(TreeNode root) {
         if(root==null || root.left==null && root.right==null) return true;
-        return inOrder(root, Long.MIN_VALUE, Long.MAX_VALUE);
+        return inOrder(root, Long.MIN_VALUE, Long.MAX_VALUE); // Long 을써야 Integer.MAX_VALUE까지 커버됨;;
     }
     public boolean inOrder(TreeNode root, long left, long right) {
         if(root==null) return true;
