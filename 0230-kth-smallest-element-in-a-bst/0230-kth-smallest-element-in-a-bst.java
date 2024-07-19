@@ -18,15 +18,16 @@ class Solution {
         inOrder(root, k);
         return val;
     }
-    int val = 0;
-    int index = 1;
+    int val;
+    int con = 0;
+    
     public void inOrder(TreeNode root, int k) {
         if(root==null) return;
         
         inOrder(root.left, k);
-        if(index==k) { val = root.val; }
-        index++;
-        inOrder(root.right, k);
+        con++;
+        if(con==k) val = root.val;
         
+        inOrder(root.right, k);
     }
 }
