@@ -15,17 +15,17 @@
  */
 class Solution {
     public TreeNode sortedArrayToBST(int[] nums) {
-       //need left and right
-        return  recursionBST(nums, 0, nums.length-1);
+        return recursiveBST(nums, 0, nums.length-1);
     }
     
-    private TreeNode recursionBST(int[] nums, int left, int right) {
-        if(left > right) { return null; }
-        int mid = left + (right-left) /2;
-        TreeNode newNode = new TreeNode(nums[mid]);
-        newNode.left = recursionBST(nums, left, mid-1);
-        newNode.right = recursionBST(nums, mid+1, right);
-        return newNode;
+    public TreeNode recursiveBST(int[] nums, int left, int right) {
+        if(left>right) return null;
+        
+        int rootNode = left + (right-left)/2;
+        TreeNode root = new TreeNode(nums[rootNode]);
+        root.left = recursiveBST(nums, left, rootNode-1);
+        root.right = recursiveBST(nums, rootNode+1, right);
+        
+        return root;
     }
-    
 }
