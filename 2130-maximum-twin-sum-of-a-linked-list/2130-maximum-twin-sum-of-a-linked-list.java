@@ -9,17 +9,17 @@
  * }
  */
 class Solution {
-    public int pairSum(ListNode head) {
-        // find middle node
+     public int pairSum(ListNode head) {
+        // go to middle node
         ListNode slow = head;
         ListNode fast = head;
         
-        while (fast != null && fast.next != null) {
+        while(fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
         }
         
-        // reverse!
+        // reverse from middlenode to endNode
         ListNode prev = null;
         ListNode cur = slow;
         while(cur != null) {
@@ -29,15 +29,17 @@ class Solution {
             cur = next;
         }
         
-        // sum two twin nodeLists
+        // sum valuse
         ListNode left = head;
         ListNode right = prev;
-        int max = 0;
+        int max = Integer.MIN_VALUE;
         while(right != null) {
             max = Math.max(max, left.val + right.val);
             left = left.next;
             right = right.next;
         }
+        
         return max; 
+        
     }
 }
