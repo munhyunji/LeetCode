@@ -1,18 +1,17 @@
 class Solution {
-    public int[] twoSum(int[] numbers, int target) {
+   public int[] twoSum(int[] numbers, int target) {
+        int left = 0;
+        int right = numbers.length-1;
         
-        int leftPoint = 0;
-        int rightPoint = numbers.length -1;        
-                
-        for(int i = 0; i < numbers.length; i++) {
-            if(numbers[leftPoint] + numbers[rightPoint] == target) {
-                return new int[]{leftPoint+1, rightPoint+1};
-            }
-            
-            if(numbers[leftPoint] + numbers[rightPoint] > target) {
-                rightPoint--;
-            } else {
-                leftPoint++;
+        while(left < right) {
+            int sum = numbers[left] + numbers[right];
+         
+            if(sum == target) {
+                return new int[]{left+1, right+1};
+            } else if (sum < target) {
+                left++;
+            } else if (sum > target) {
+                right--;
             }
         }
         return new int[]{};
