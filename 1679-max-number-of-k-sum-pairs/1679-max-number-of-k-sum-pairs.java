@@ -1,27 +1,22 @@
 class Solution {
     public int maxOperations(int[] nums, int k) {
         Arrays.sort(nums);
+        int cnt = 0;
+        int left = 0;
+        int right = nums.length-1;
         
-        int count = 0;
-        int leftPointer = 0;
-        int rightPointer = nums.length-1;
-        
-        // 1,3,3,3,4 k=6
-        
-        while( leftPointer < rightPointer ) {
-            int sum = nums[leftPointer] + nums[rightPointer];
-            
+        while(left < right) {
+            int sum = nums[left] + nums[right];
             if(sum == k) {
-                count++;
-                leftPointer++;
-                rightPointer--;                
-            } else if (sum > k) {
-                rightPointer--;
+                cnt++;
+                left++;
+                right--;
+            } else if ( sum < k ) {
+               left++; 
             } else {
-                leftPointer++;
+                right--;
             }
         }
-        return count;
+        return cnt;
     }
 }
-
